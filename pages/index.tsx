@@ -1,6 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
 
+function IncreaseRabbitButton() {
+  return (
+    <button id="1" style={{ fontSize: "500%" }}>
+      うさぎを増やす
+    </button>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -13,15 +21,13 @@ export default function Home() {
         </div>
       </div>
       <div id="wrap">
-        <span style="color:red;">音が出ます</span>
+        <span style={{ color: "red" }}>音が出ます</span>
         左下をクリックするといいことが起こります パソコンでのプレイを推奨
-        <div id="usa" style="font-size:500%;">
+        <div id="usa" style={{ fontSize: "500%" }}>
           0匹のうさぎがいます
         </div>
-        <button id="1" style="font-size:500%;">
-          うさぎを増やす
-        </button>
-        <button id="tori" style="font-size:100%;">
+        <IncreaseRabbitButton />
+        <button id="tori" style={{ fontSize: "100%" }}>
           Twitterで共有
         </button>
         <div id="version"></div>
@@ -42,7 +48,7 @@ export default function Home() {
         <button id="play_hi">交響曲を流す</button>
         <hr />
         <h1>設定</h1>
-        <button id="del" style="font-size:100%;">
+        <button id="del" style={{fontSize: "100%"}}>
           データ消去（消えます）
         </button>
         <hr />
@@ -54,7 +60,11 @@ export default function Home() {
         <hr />
         <h1>クレジット</h1>
         <b>原案</b>：
-        <a href="https://mastodon.cloud/@SugaryAlice" target="_blank" rel="noreferrer">
+        <a
+          href="https://mastodon.cloud/@SugaryAlice"
+          target="_blank"
+          rel="noreferrer"
+        >
           ありす
         </a>
         <br />
@@ -70,21 +80,37 @@ export default function Home() {
         , umezy12
         <br />
         <b>楽曲</b>：
-        <a href="https://mastodon.cloud/@hc85f" target="_blank" rel="noreferrer">
+        <a
+          href="https://mastodon.cloud/@hc85f"
+          target="_blank"
+          rel="noreferrer"
+        >
           HC
         </a>
         ,{" "}
-        <a href="http://classical-sound.seesaa.net/" target="_blank" rel="noreferrer">
+        <a
+          href="http://classical-sound.seesaa.net/"
+          target="_blank"
+          rel="noreferrer"
+        >
           クラシック名曲サウンドライブラリー
         </a>
         <br />
         <b>効果音</b>：
-        <a href="https://soundeffect-lab.info/" target="_blank" rel="noreferrer">
+        <a
+          href="https://soundeffect-lab.info/"
+          target="_blank"
+          rel="noreferrer"
+        >
           効果音ラボ
         </a>
         <br />
         <b>出演</b>：
-        <a href="https://mastodon.cloud/@thethreegraces1" target="_blank" rel="noreferrer">
+        <a
+          href="https://mastodon.cloud/@thethreegraces1"
+          target="_blank"
+          rel="noreferrer"
+        >
           しまくま
         </a>
         ,{" "}
