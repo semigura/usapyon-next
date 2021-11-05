@@ -1,11 +1,39 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useState } from "react";
 
 function IncreaseRabbitButton() {
+  const [usagi, setUsagi] = useState([]);
+  const handleClickButton = () => {
+    setUsagi([
+      ...usagi,
+      {
+        top: Math.floor(Math.random() * window.innerWidth + 60) - 30,
+        right: Math.floor(Math.random() * window.innerHeight + 100) - 50,
+      },
+    ]);
+    console.log(usagi);
+  };
+
   return (
-    <button id="1" style={{ fontSize: "500%" }}>
-      うさぎを増やす
-    </button>
+    <>
+      <button style={{ fontSize: "500%" }} onClick={handleClickButton}>
+        うさぎを増やす
+      </button>
+      {usagi.length}
+      {usagi.map((usagiItem, index) => (
+        <div
+          key={index}
+          style={{
+            position: "absolute",
+            top: usagiItem.top,
+            right: usagiItem.right,
+          }}
+        >
+          {index}
+        </div>
+      ))}
+    </>
   );
 }
 
@@ -17,7 +45,7 @@ export default function Home() {
       </Head>
       <div id="loading">
         <div id="loader">
-          <Image src="image/loading.gif" alt="Loading..." />
+          {/* <Image src="image/loading.gif" alt="Loading..." /> */}
         </div>
       </div>
       <div id="wrap">
@@ -48,7 +76,7 @@ export default function Home() {
         <button id="play_hi">交響曲を流す</button>
         <hr />
         <h1>設定</h1>
-        <button id="del" style={{fontSize: "100%"}}>
+        <button id="del" style={{ fontSize: "100%" }}>
           データ消去（消えます）
         </button>
         <hr />
