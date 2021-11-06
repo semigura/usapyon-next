@@ -1,43 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
-
-function IncreaseRabbitButton() {
-  const [usagi, setUsagi] = useState([]);
-  const handleClickButton = () => {
-    setUsagi([
-      ...usagi,
-      {
-        top: Math.floor(Math.random() * window.innerWidth + 60) - 30,
-        right: Math.floor(Math.random() * window.innerHeight + 100) - 50,
-      },
-    ]);
-    console.log(usagi);
-  };
-
-  return (
-    <>
-      <button style={{ fontSize: "500%" }} onClick={handleClickButton}>
-        うさぎを増やす
-      </button>
-      {usagi.length}
-      {usagi.map((usagiItem, index) => (
-        <div
-          key={index}
-          style={{
-            position: "absolute",
-            top: usagiItem.top,
-            right: usagiItem.right,
-          }}
-        >
-          {index}
-        </div>
-      ))}
-    </>
-  );
-}
+import { useSelector, useDispatch } from "react-redux";
+import { increment } from "../features/counter/counterSlice";
 
 export default function Home() {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
   return (
     <>
       <Head>
@@ -48,13 +17,33 @@ export default function Home() {
           {/* <Image src="image/loading.gif" alt="Loading..." /> */}
         </div>
       </div>
+      <div>
+        <button
+          aria-label="Increment value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        {count.map((usagiItem, index) => (
+          <div
+            key={index}
+            style={{
+              position: "absolute",
+              top: usagiItem.top,
+              right: usagiItem.right,
+            }}
+          >
+            {index}
+          </div>
+        ))}
+      </div>
       <div id="wrap">
         <span style={{ color: "red" }}>音が出ます</span>
         左下をクリックするといいことが起こります パソコンでのプレイを推奨
         <div id="usa" style={{ fontSize: "500%" }}>
           0匹のうさぎがいます
         </div>
-        <IncreaseRabbitButton />
+        <button style={{ fontSize: "500%" }}>うさぎを増やす</button>
         <button id="tori" style={{ fontSize: "100%" }}>
           Twitterで共有
         </button>
