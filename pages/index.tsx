@@ -17,12 +17,17 @@ export default function Home() {
           {/* <Image src="image/loading.gif" alt="Loading..." /> */}
         </div>
       </div>
-      <div>
+      <div id="wrap">
+        <span style={{ color: "red" }}>音が出ます</span>
+        左下をクリックするといいことが起こります パソコンでのプレイを推奨
+        <div id="usa" style={{ fontSize: "500%" }}>
+          {count.length}匹のうさぎがいます
+        </div>
         <button
-          aria-label="Increment value"
           onClick={() => dispatch(increment())}
+          style={{ fontSize: "500%" }}
         >
-          Increment
+          うさぎを増やす
         </button>
         {count.map((usagiItem, index) => (
           <div
@@ -36,14 +41,6 @@ export default function Home() {
             {index}
           </div>
         ))}
-      </div>
-      <div id="wrap">
-        <span style={{ color: "red" }}>音が出ます</span>
-        左下をクリックするといいことが起こります パソコンでのプレイを推奨
-        <div id="usa" style={{ fontSize: "500%" }}>
-          0匹のうさぎがいます
-        </div>
-        <button style={{ fontSize: "500%" }}>うさぎを増やす</button>
         <button id="tori" style={{ fontSize: "100%" }}>
           Twitterで共有
         </button>
