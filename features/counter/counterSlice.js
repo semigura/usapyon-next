@@ -1,5 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const animalType = [
+  "usagi",
+  "usagi",
+  "kuma",
+  "risu",
+  "aja",
+]
+
 export const counterSlice = createSlice({
   name: "counter",
   initialState: {
@@ -10,6 +18,7 @@ export const counterSlice = createSlice({
       state.value = [
         ...state.value,
         {
+          type: animalType[Math.floor(Math.random() * 5)],
           top: Math.floor(Math.random() * window.innerWidth + 60) - 30,
           right: Math.floor(Math.random() * window.innerHeight + 100) - 50,
         },

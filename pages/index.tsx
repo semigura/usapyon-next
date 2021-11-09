@@ -38,7 +38,7 @@ export default function Home() {
               right: usagiItem.right,
             }}
           >
-            {index}
+            {usagiItem.type}
           </div>
         ))}
         <button id="tori" style={{ fontSize: "100%" }}>
