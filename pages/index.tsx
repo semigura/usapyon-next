@@ -1,6 +1,6 @@
+import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { increment } from "../features/counter/counterSlice";
 
@@ -44,8 +44,8 @@ export default function Home() {
         <button id="tori" style={{ fontSize: "100%" }}>
           Twitterで共有
         </button>
-        <div id="version"></div>
-        <div id="info"></div>
+        <div id="version" />
+        <div id="info" />
       </div>
       <div id="credit">
         バージョン番号を再クリックで閉じる
@@ -67,10 +67,10 @@ export default function Home() {
         </button>
         <hr />
         <h1>ステータス</h1>
-        <div id="status"></div>
+        <div id="status" />
         <hr />
         <h1>解除済実績一覧</h1>
-        <div id="achievement_list"></div>
+        <div id="achievement_list" />
         <hr />
         <h1>クレジット</h1>
         <b>原案</b>：

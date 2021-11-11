@@ -8,6 +8,13 @@ const animalType = [
   "aja",
 ]
 
+const animalImage = [
+  {"usagi": ""},
+  {"kuma": ""},
+  {"risu": ""},
+  {"aja": ""},
+]
+
 export const counterSlice = createSlice({
   name: "counter",
   initialState: {
