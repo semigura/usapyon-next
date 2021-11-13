@@ -6,7 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { increment } from "../features/counter/counterSlice";
 
-export function Home() {
+// eslint-disable-next-line import/no-default-export
+export default function Home() {
   const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
   return (
@@ -33,6 +34,7 @@ export function Home() {
         </button>
         {count.map((usagiItem, index) => (
           <div
+            // eslint-disable-next-line react/no-array-index-key
             key={index}
             style={{
               position: "absolute",
@@ -40,7 +42,11 @@ export function Home() {
               right: usagiItem.right,
             }}
           >
-            {usagiItem.type}
+            <Image
+              src={usagiItem.image.imageSrc}
+              width={usagiItem.image.width}
+              height={usagiItem.image.height}
+            />
           </div>
         ))}
         <button id="tori" style={{ fontSize: "100%" }}>

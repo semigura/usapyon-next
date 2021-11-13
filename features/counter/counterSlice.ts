@@ -24,13 +24,17 @@ const animalImages = (animal) => {
   const random7 = Math.floor(Math.random() * 7);
   switch (animal) {
     case "aja":
-      return "/images/aja.png";
+      return { imageSrc: "/images/aja.png", width: "120", height: "120" };
     case "kuma":
-      return "/images/kuma.png";
+      return { imageSrc: "/images/kuma.png", width: "92", height: "112" };
     case "risu":
-      return "/images/risu.png";
+      return { imageSrc: "/images/risu.png", width: "89", height: "83" };
     default:
-      return `/images/usagi_${random7}`;
+      return {
+        imageSrc: `/images/usagi_${random7}.png`,
+        width: "67",
+        height: "127",
+      };
   }
 };
 
@@ -52,8 +56,8 @@ export const counterSlice = createSlice({
         {
           type: animal,
           image: animalImages(animal),
-          top: Math.floor(Math.random() * window.innerWidth + 60) - 30,
-          right: Math.floor(Math.random() * window.innerHeight + 100) - 50,
+          top: Math.floor(Math.random() * window.innerHeight + 240) - 120,
+          right: Math.floor(Math.random() * window.innerWidth + 240) - 120,
         },
       ];
       // eslint-disable-next-line no-param-reassign
