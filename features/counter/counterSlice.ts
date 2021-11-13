@@ -20,6 +20,20 @@ const selectAnimals = () => {
   }
 };
 
+const animalImages = (animal) => {
+  const random7 = Math.floor(Math.random() * 7);
+  switch (animal) {
+    case "aja":
+      return "/images/aja.png";
+    case "kuma":
+      return "/images/kuma.png";
+    case "risu":
+      return "/images/risu.png";
+    default:
+      return `/images/usagi_${random7}`;
+  }
+};
+
 export const counterSlice = createSlice({
   name: "counter",
   initialState: {
@@ -37,6 +51,7 @@ export const counterSlice = createSlice({
         ...state.value,
         {
           type: animal,
+          image: animalImages(animal),
           top: Math.floor(Math.random() * window.innerWidth + 60) - 30,
           right: Math.floor(Math.random() * window.innerHeight + 100) - 50,
         },
