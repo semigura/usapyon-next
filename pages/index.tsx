@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+
 import Head from "next/head";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
+
 import { increment } from "../features/counter/counterSlice";
 
-export default function Home() {
+export function Home() {
   const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
   return (

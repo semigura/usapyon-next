@@ -18,7 +18,6 @@ module.exports = {
     "airbnb",
     "airbnb/hooks",
     "plugin:@next/next/recommended",
-    "next/core-web-vitals",
     "plugin:cypress/recommended",
     "plugin:prettier/recommended",
   ],
