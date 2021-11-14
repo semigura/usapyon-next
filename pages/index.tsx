@@ -1,7 +1,15 @@
+import React, { useState } from "react";
+
 import Head from "next/head";
 import Image from "next/image";
+import { useSelector, useDispatch } from "react-redux";
 
+import { increment } from "../features/counter/counterSlice";
+
+// eslint-disable-next-line import/no-default-export
 export default function Home() {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
   return (
     <>
       <Head>
@@ -9,23 +17,43 @@ export default function Home() {
       </Head>
       <div id="loading">
         <div id="loader">
-          <Image src="image/loading.gif" alt="Loading..." />
+          {/* <Image src="image/loading.gif" alt="Loading..." /> */}
         </div>
       </div>
       <div id="wrap">
-        <span style="color:red;">音が出ます</span>
+        <span style={{ color: "red" }}>音が出ます</span>
         左下をクリックするといいことが起こります パソコンでのプレイを推奨
-        <div id="usa" style="font-size:500%;">
-          0匹のうさぎがいます
+        <div id="usa" style={{ fontSize: "500%" }}>
+          {count.length}匹のうさぎがいます
         </div>
-        <button id="1" style="font-size:500%;">
+        <button
+          onClick={() => dispatch(increment())}
+          style={{ fontSize: "500%" }}
+        >
           うさぎを増やす
         </button>
-        <button id="tori" style="font-size:100%;">
+        {count.map((usagiItem, index) => (
+          <div
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            style={{
+              position: "absolute",
+              top: usagiItem.top,
+              right: usagiItem.right,
+            }}
+          >
+            <Image
+              src={usagiItem.image.imageSrc}
+              width={usagiItem.image.width}
+              height={usagiItem.image.height}
+            />
+          </div>
+        ))}
+        <button id="tori" style={{ fontSize: "100%" }}>
           Twitterで共有
         </button>
-        <div id="version"></div>
-        <div id="info"></div>
+        <div id="version" />
+        <div id="info" />
       </div>
       <div id="credit">
         バージョン番号を再クリックで閉じる
@@ -42,19 +70,23 @@ export default function Home() {
         <button id="play_hi">交響曲を流す</button>
         <hr />
         <h1>設定</h1>
-        <button id="del" style="font-size:100%;">
+        <button id="del" style={{ fontSize: "100%" }}>
           データ消去（消えます）
         </button>
         <hr />
         <h1>ステータス</h1>
-        <div id="status"></div>
+        <div id="status" />
         <hr />
         <h1>解除済実績一覧</h1>
-        <div id="achievement_list"></div>
+        <div id="achievement_list" />
         <hr />
         <h1>クレジット</h1>
         <b>原案</b>：
-        <a href="https://mastodon.cloud/@SugaryAlice" target="_blank" rel="noreferrer">
+        <a
+          href="https://mastodon.cloud/@SugaryAlice"
+          target="_blank"
+          rel="noreferrer"
+        >
           ありす
         </a>
         <br />
@@ -70,21 +102,37 @@ export default function Home() {
         , umezy12
         <br />
         <b>楽曲</b>：
-        <a href="https://mastodon.cloud/@hc85f" target="_blank" rel="noreferrer">
+        <a
+          href="https://mastodon.cloud/@hc85f"
+          target="_blank"
+          rel="noreferrer"
+        >
           HC
         </a>
         ,{" "}
-        <a href="http://classical-sound.seesaa.net/" target="_blank" rel="noreferrer">
+        <a
+          href="http://classical-sound.seesaa.net/"
+          target="_blank"
+          rel="noreferrer"
+        >
           クラシック名曲サウンドライブラリー
         </a>
         <br />
         <b>効果音</b>：
-        <a href="https://soundeffect-lab.info/" target="_blank" rel="noreferrer">
+        <a
+          href="https://soundeffect-lab.info/"
+          target="_blank"
+          rel="noreferrer"
+        >
           効果音ラボ
         </a>
         <br />
         <b>出演</b>：
-        <a href="https://mastodon.cloud/@thethreegraces1" target="_blank" rel="noreferrer">
+        <a
+          href="https://mastodon.cloud/@thethreegraces1"
+          target="_blank"
+          rel="noreferrer"
+        >
           しまくま
         </a>
         ,{" "}
