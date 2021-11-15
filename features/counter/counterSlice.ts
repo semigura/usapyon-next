@@ -56,8 +56,8 @@ export const counterSlice = createSlice({
         {
           type: animal,
           image: animalImages(animal),
-          top: Math.floor(Math.random() * window.innerHeight + 240) - 120,
-          right: Math.floor(Math.random() * window.innerWidth + 240) - 120,
+          top: Math.floor(Math.random() * (window.innerHeight + 240)) - 120,
+          right: Math.floor(Math.random() * (window.innerWidth + 240)) - 120,
         },
       ];
       // eslint-disable-next-line no-param-reassign
