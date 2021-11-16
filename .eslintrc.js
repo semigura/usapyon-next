@@ -24,7 +24,8 @@ module.exports = {
   ignorePatterns: [".next/", "examples/", "node_modules/", "public/"],
   rules: {
     "no-console": ["error", { allow: ["error"] }],
-    "import/no-unresolved": ["error", { ignore: ["^@"] }],
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
     "import/no-default-export": "error",
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",

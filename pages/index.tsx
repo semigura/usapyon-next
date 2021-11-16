@@ -209,10 +209,11 @@ export default function Home() {
               right: usagiItem.right,
             }}
           >
-            <Image
+            <img
               src={usagiItem.image.imageSrc}
               width={usagiItem.image.width}
               height={usagiItem.image.height}
+              alt=""
             />
           </div>
         ))}
